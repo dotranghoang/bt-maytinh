@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <h3>Caculator<br/>
+        <input type="text" id="number1" value=""> <br/> 
+        <input type="text" id="number2" value=""><br/>
+         <button type="button" onclick="cong()">Addition(+)</button>
+         <button type="button" onclick="tru()">Subtraction(-)</button>
+         <button type="button" onclick="nhan()">Mutiplication(X)</button>
+         <button type="button" onclick="chia()">Division(/)</button>
+        </h3>
+        <h2><p id="ketqua"></p></h2>
+        <script>
+            let number1=document.getElementById("number1").value;
+            let number2=document.getElementById("number2").value;
+            let a=parseInt(number1);
+            let b=parseInt(number2);
+            let c;
+            let t;
+            let n;
+            let ch;
+        function cong() {
+            c= a + b;
+            document.getElementById("ketqua").innerHTML=c;
+            }
+            function tru() {
+                t= a - b;
+                document.getElementById("ketqua").innerHTML=t;
+            } function nhan() {
+                n= a * b;
+                document.getElementById("ketqua").innerHTML=n;
+            } function chia() {
+                ch= a / b;
+                document.getElementById("ketqua").innerHTML=ch;
+            }
+        
+        
+        </script>
+
+        
+
+</body>
+</html>
