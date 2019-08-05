@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input id="display" x/></br>
+    
+    <button onclick="clickNumber(1)">1</button>
+    <button onclick="clickNumber(2)">2</button>
+    <button onclick="clickNumber(3)">3</button>
+    <button onclick="clickOperator('+')">+</button>
+</br>
+
+    <button onclick="clickNumber(4)">4</button>
+    <button onclick="clickNumber(5)">5</button>
+    <button onclick="clickNumber(6)">6</button>
+    <button onclick="clickOperator('-')">-</button>
+    </br>
+    <button onclick="clickNumber(7)">7</button>
+    <button onclick="clickNumber(8)">8</button>
+    <button onclick="clickNumber(9)">9</button>
+    <button onclick="clickOperator('x')">x</button>
+    </br>
+    <button onclick="clickNumber(0)">0</button>
+    <button onclick="reset()">Ac</button>
+    <button onclick="clickEqual('=')">=</button>
+    <button onclick="clickOperator('/')">/</button>
+    
+    
+</body>
+<script >
+let display=document.getElementById("display");
+let isOperatorClicked=false;
+let isEqualClicked=false;
+let operator ='';
+let firstOperand;
+let secondOperand;
+ 
+function reset() {
+    isOperatorClicked = false;
+    isEqualClicked = false ;
+
+    operator = '';
+    firstOperand = undefined;
+    secondOperand = undefined;
+    display.value = '';
+}
+
+
+
+
+function clickNumber(number) {
+    if (isOperatorClicked == true) {
+        firstOperand = display.value;
+
+        display.value = number;
+        isOperatorClicked = false;
+
+    } else {
+        display.value += number;
+    }
+}
+function clickOperator(operatorValue) {
+    isOperatorClicked=true;
+    operator = operatorValue;
+    isEqualClicked=false;
+}
+function clickEqual() {
+    if(isEqualClicked) {
+        firstOperand = parseInt(display.value);
+    } else {
+        firstOperand = parseInt(firstOperand);
+        secondOperand = parseInt(display.value);
+    } 
+
+let result;
+if ( operator == '+') {
+    result = firstOperand + secondOperand ;
+} else if( operator == '-') {
+    result = firstOperand - secondOperand;
+} else if (operator == 'x') {
+    result = firstOperand * secondOperand;
+} else if (operator == '/') {
+    result = firstOperand / secondOperand ;
+}
+display.value = result;
+isEqualClicked= true;
+}
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>
